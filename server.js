@@ -10,7 +10,9 @@ import taskRecordRouter from "./routes/taskRecord.route.js";
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/examen2cinfo2324sp", { family: 4 })
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/examen2cinfo2324sp";
+
+mongoose.connect(MONGO_URI , { family: 4 })
     .then(() => {
         console.log("database connected");
     })
